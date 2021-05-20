@@ -19,8 +19,9 @@ export default function Home() {
           <div className="flex items-center justify-between ">
             <div className=" h-8 flex bg-white rounded-lg">
               <input
-                className=" focus:outline-none px-2 py-1 bg-transparent font-semibold "
+                className=" focus:outline-none px-2 py-1 bg-transparent "
                 type="text"
+                placeholder="Search"
               />
               <div className="h-8 w-16 bg-primary-dark rounded-r-lg text-center">
                 <SearchOutlinedIcon className="mt-1 text-white" />
@@ -143,7 +144,7 @@ export default function Home() {
                     <h1 className="text-xs">Customers</h1>
                   </div>
                 </div>
-                <AccountCircleOutlinedIcon fontSize="small" />
+                <AccountCircleOutlinedIcon />
               </div>
               <div className="flex px-5 py-3 items-center justify-between">
                 <div className="flex items-center">
@@ -157,7 +158,7 @@ export default function Home() {
                     <h1 className="text-xs">Editor</h1>
                   </div>
                 </div>
-                <AccountCircleOutlinedIcon fontSize="small" />
+                <AccountCircleOutlinedIcon />
               </div>
             </div>
           </div>

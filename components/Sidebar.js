@@ -12,24 +12,39 @@ const Sidebar = () => {
       <h1 className=" ml-8 py-4 text-lg ">Buy27</h1>
       <div className="border-b"></div>
       <h1 className=" ml-8 my-4 my-4 text-sm text-gray-500">MAIN</h1>
-      <h1 className="ml-8 my-8 ">
-        <DashboardOutlinedIcon className="mr-2" /> Dashboard
-      </h1>
-      <h1 className="ml-8 my-8 ">
-        <LocalMallOutlinedIcon className="mr-2" /> Products
-      </h1>
-      <h1 className="ml-8 my-8 ">
-        <CategoryOutlinedIcon className="mr-2" /> Categories
-      </h1>
-      <h1 className="ml-8 my-8 ">
-        <ShoppingCartOutlinedIcon className="mr-2" /> Orders
-      </h1>
-      <h1 className="ml-8 my-8 ">
-        <PeopleAltOutlinedIcon className="mr-2" /> Customers
-      </h1>
-      <h1 className="ml-8 my-8 ">
-        <AccountCircleOutlinedIcon className="mr-2" /> About
-      </h1>
+      <div className=" flex flex-col ml-8 ">
+        <Link href="/">
+          <a className=" my-4 ">
+            <DashboardOutlinedIcon className="mr-2" />
+            Dashboard
+          </a>
+        </Link>
+        <Link href="/products">
+          <a className=" my-4 ">
+            <LocalMallOutlinedIcon className="mr-2" /> Products
+          </a>
+        </Link>
+        <Link href="/">
+          <a className=" my-4 ">
+            <CategoryOutlinedIcon className="mr-2" /> Categories
+          </a>
+        </Link>
+        <Link href="/">
+          <a className=" my-4 ">
+            <ShoppingCartOutlinedIcon className="mr-2" /> Orders
+          </a>
+        </Link>
+        <Link href="/">
+          <a className=" my-4 ">
+            <PeopleAltOutlinedIcon className="mr-2" /> Customers
+          </a>
+        </Link>
+        <Link href="/">
+          <a className=" my-4 ">
+            <AccountCircleOutlinedIcon className="mr-2" /> About
+          </a>
+        </Link>
+      </div>
     </div>
   );
 };
