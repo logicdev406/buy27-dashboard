@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Sidebar = () => {
   return (
-    <div className="h-screen w-64 rounded-r-2xl bg-primary-dark text-white ">
+    <div className="h-screen w-60 rounded-r-2xl bg-primary-dark text-white ">
       <h1 className=" ml-8 py-4 text-lg ">Buy27</h1>
       <div className="border-b"></div>
       <h1 className=" ml-8 my-4 my-4 text-sm text-gray-500">MAIN</h1>

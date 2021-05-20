@@ -8,6 +8,7 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";
 import MonetizationOnOutlinedIcon from "@material-ui/icons/MonetizationOnOutlined";
 import ArrowForwardOutlinedIcon from "@material-ui/icons/ArrowForwardOutlined";
+import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 
 export default function Home() {
   return (
@@ -83,7 +84,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex py-10 justify-between">
-            <div className="h-40 w-8/12 bg-white border-2 border-gray-300 shadow-lg ">
+            <div className=" w-8/12 bg-white rounded border-2 border-gray-300 shadow-lg ">
               <div className="flex items-center justify-between px-5 py-3 border-b-2">
                 <h1 className=" font-semibold ">Recent Orders</h1>
                 <div className=" flex h-8 px-2 items-center rounded bg-primary-dark text-sm text-white">
@@ -91,14 +92,74 @@ export default function Home() {
                   <ArrowForwardOutlinedIcon fontSize="inherit" />
                 </div>
               </div>
-              <div className=" flex items-center justify-between py-3 pl-5 pr-28 border-b-2 text-sm text-semibold">
+              <div className=" flex items-center text-primary-dark justify-between py-3 pl-5 pr-28 border-b-2 text-sm text-semibold">
                 <h1>Order Details</h1>
                 <h1>Quantity</h1>
                 <h1>Order Price</h1>
                 <h1>Status</h1>
               </div>
+              <div className="flex text-primary-dark pl-5 pr-28 items-center justify-between">
+                <div className="flex py-2 items-center">
+                  <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
+                  <h1 className="text-sm w-20 truncate ">
+                    {" "}
+                    Mens Plain t-shirt
+                  </h1>
+                </div>
+                <h1>4</h1>
+                <h1>4,300</h1>
+                <h1>Delivered</h1>
+              </div>
+              <div className="flex text-primary-dark pl-5 pr-28 items-center justify-between">
+                <div className="flex py-2 items-center">
+                  <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
+                  <h1 className="text-sm w-20 truncate ">
+                    {" "}
+                    Mens Plain t-shirt
+                  </h1>
+                </div>
+                <h1>4</h1>
+                <h1>4,300</h1>
+                <h1>Delivered</h1>
+              </div>
             </div>
-            <div></div>
+            <div className="w-96 bg-white rounded border-2 border-gray-300 shadow-lg ">
+              <div className="flex items-center justify-between px-5 py-3 border-b-2">
+                <h1 className=" font-semibold ">Customers</h1>
+                <div className=" flex h-8 px-2 items-center rounded bg-primary-dark text-sm text-white">
+                  <p className="mr-1">See all</p>{" "}
+                  <ArrowForwardOutlinedIcon fontSize="inherit" />
+                </div>
+              </div>
+              <div className="flex px-5 py-3 items-center justify-between">
+                <div className="flex items-center">
+                  <img
+                    className="h-12 w-12 rounded-full bg-red-500 mr-2"
+                    src=""
+                    alt=""
+                  />
+                  <div className="">
+                    <h1 className="text-sm font-semibold">John Doe</h1>
+                    <h1 className="text-xs">Customers</h1>
+                  </div>
+                </div>
+                <AccountCircleOutlinedIcon fontSize="small" />
+              </div>
+              <div className="flex px-5 py-3 items-center justify-between">
+                <div className="flex items-center">
+                  <img
+                    className="h-12 w-12 rounded-full bg-red-500 mr-2"
+                    src=""
+                    alt=""
+                  />
+                  <div className="">
+                    <h1 className="text-sm font-semibold">John Doe</h1>
+                    <h1 className="text-xs">Editor</h1>
+                  </div>
+                </div>
+                <AccountCircleOutlinedIcon fontSize="small" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
