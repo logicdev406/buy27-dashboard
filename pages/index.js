@@ -206,7 +206,7 @@ export default function Home() {
                   <ArrowForwardOutlinedIcon fontSize="inherit" />
                 </div>
               </div>
-              <div className="h-full overflow-y-auto ">
+              <div className="h-96 mt-8 overflow-y-auto ">
                 <div className="flex px-5 py-3 items-center justify-between">
                   <div className="flex items-center">
                     <img
