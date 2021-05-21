@@ -84,7 +84,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="flex pt-8 justify-between">
+          <div className="flex pt-5 justify-between">
             <div className=" w-8/12 bg-white rounded border-2 border-gray-300 shadow-lg ">
               <div className="flex items-center justify-between px-5 py-3 border-b-2">
                 <h1 className=" font-semibold ">Recent Orders</h1>
@@ -99,7 +99,7 @@ export default function Home() {
                 <h1>Order Price</h1>
                 <h1>Status</h1>
               </div>
-              <div className="h-96 my-2 overflow-y-auto ">
+              <div className="h-96 my-2 text-sm overflow-y-auto ">
                 <div className="flex  text-primary-dark pl-5 pr-28 items-center justify-between">
                   <div className="flex py-2 items-center">
                     <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
@@ -198,7 +198,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="w-96 bg-white rounded border-2 border-gray-300 shadow-lg ">
+            <div className="w-96 bg-white  rounded border-2 border-gray-300 shadow-lg ">
               <div className="flex items-center justify-between px-5 py-3 border-b-2">
                 <h1 className=" font-semibold ">Customers</h1>
                 <div className=" flex h-8 px-2 items-center rounded bg-primary-dark text-sm text-white">
@@ -206,7 +206,7 @@ export default function Home() {
                   <ArrowForwardOutlinedIcon fontSize="inherit" />
                 </div>
               </div>
-              <div className="h-96 mt-8 overflow-y-auto ">
+              <div className="h-96 text-sm mt-8 overflow-y-auto ">
                 <div className="flex px-5 py-3 items-center justify-between">
                   <div className="flex items-center">
                     <img
