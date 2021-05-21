@@ -29,6 +29,7 @@ const Products = () => {
             <div className="h-8 w-8 mx-1 bg-blue-500 rounded-full items-center justify-center"></div>
           </div>
         </div>
+        <div className="h-20 my-20 bg-white border-2 rounded shadow-lg"></div>
       </div>
     </div>
   );

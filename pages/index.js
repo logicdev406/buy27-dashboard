@@ -34,7 +34,7 @@ export default function Home() {
               <div className="h-8 w-8 mx-1 bg-blue-500 rounded-full items-center justify-center"></div>
             </div>
           </div>
-          <div className=" flex items-center pt-20 ">
+          <div className=" flex items-center mt-10 ">
             <div className=" flex h-24 w-64 px-5 mr-8 bg-white border-2 border-gray-300  rounded shadow-lg items-center justify-between text-primary-dark">
               <div>
                 <h1 className=" w-40 font-bold text-2xl overflow-ellipsis ">
@@ -84,7 +84,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="flex py-10 justify-between">
+          <div className="flex pt-8 justify-between">
             <div className=" w-8/12 bg-white rounded border-2 border-gray-300 shadow-lg ">
               <div className="flex items-center justify-between px-5 py-3 border-b-2">
                 <h1 className=" font-semibold ">Recent Orders</h1>
@@ -99,29 +99,103 @@ export default function Home() {
                 <h1>Order Price</h1>
                 <h1>Status</h1>
               </div>
-              <div className="flex text-primary-dark pl-5 pr-28 items-center justify-between">
-                <div className="flex py-2 items-center">
-                  <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                  <h1 className="text-sm w-20 truncate ">
-                    {" "}
-                    Mens Plain t-shirt
-                  </h1>
+              <div className="h-96 my-2 overflow-y-auto ">
+                <div className="flex  text-primary-dark pl-5 pr-28 items-center justify-between">
+                  <div className="flex py-2 items-center">
+                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
+                    <h1 className="text-sm w-20 truncate ">
+                      {" "}
+                      Mens Plain t-shirt
+                    </h1>
+                  </div>
+                  <h1>4</h1>
+                  <h1>4,300</h1>
+                  <h1>Delivered</h1>
                 </div>
-                <h1>4</h1>
-                <h1>4,300</h1>
-                <h1>Delivered</h1>
-              </div>
-              <div className="flex text-primary-dark pl-5 pr-28 items-center justify-between">
-                <div className="flex py-2 items-center">
-                  <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                  <h1 className="text-sm w-20 truncate ">
-                    {" "}
-                    Mens Plain t-shirt
-                  </h1>
+                <div className="flex text-primary-dark pl-5 pr-28 items-center justify-between">
+                  <div className="flex py-2 items-center">
+                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
+                    <h1 className="text-sm w-20 truncate ">
+                      {" "}
+                      Mens Plain t-shirt
+                    </h1>
+                  </div>
+                  <h1>4</h1>
+                  <h1>4,300</h1>
+                  <h1>Delivered</h1>
                 </div>
-                <h1>4</h1>
-                <h1>4,300</h1>
-                <h1>Delivered</h1>
+                <div className="flex  text-primary-dark pl-5 pr-28 items-center justify-between">
+                  <div className="flex py-2 items-center">
+                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
+                    <h1 className="text-sm w-20 truncate ">
+                      {" "}
+                      Mens Plain t-shirt
+                    </h1>
+                  </div>
+                  <h1>4</h1>
+                  <h1>4,300</h1>
+                  <h1>Delivered</h1>
+                </div>
+                <div className="flex text-primary-dark pl-5 pr-28 items-center justify-between">
+                  <div className="flex py-2 items-center">
+                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
+                    <h1 className="text-sm w-20 truncate ">
+                      {" "}
+                      Mens Plain t-shirt
+                    </h1>
+                  </div>
+                  <h1>4</h1>
+                  <h1>4,300</h1>
+                  <h1>Delivered</h1>
+                </div>
+                <div className="flex  text-primary-dark pl-5 pr-28 items-center justify-between">
+                  <div className="flex py-2 items-center">
+                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
+                    <h1 className="text-sm w-20 truncate ">
+                      {" "}
+                      Mens Plain t-shirt
+                    </h1>
+                  </div>
+                  <h1>4</h1>
+                  <h1>4,300</h1>
+                  <h1>Delivered</h1>
+                </div>
+                <div className="flex text-primary-dark pl-5 pr-28 items-center justify-between">
+                  <div className="flex py-2 items-center">
+                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
+                    <h1 className="text-sm w-20 truncate ">
+                      {" "}
+                      Mens Plain t-shirt
+                    </h1>
+                  </div>
+                  <h1>4</h1>
+                  <h1>4,300</h1>
+                  <h1>Delivered</h1>
+                </div>
+                <div className="flex  text-primary-dark pl-5 pr-28 items-center justify-between">
+                  <div className="flex py-2 items-center">
+                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
+                    <h1 className="text-sm w-20 truncate ">
+                      {" "}
+                      Mens Plain t-shirt
+                    </h1>
+                  </div>
+                  <h1>4</h1>
+                  <h1>4,300</h1>
+                  <h1>Delivered</h1>
+                </div>
+                <div className="flex text-primary-dark pl-5 pr-28 items-center justify-between">
+                  <div className="flex py-2 items-center">
+                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
+                    <h1 className="text-sm w-20 truncate ">
+                      {" "}
+                      Mens Plain t-shirt
+                    </h1>
+                  </div>
+                  <h1>4</h1>
+                  <h1>4,300</h1>
+                  <h1>Delivered</h1>
+                </div>
               </div>
             </div>
             <div className="w-96 bg-white rounded border-2 border-gray-300 shadow-lg ">
@@ -132,33 +206,119 @@ export default function Home() {
                   <ArrowForwardOutlinedIcon fontSize="inherit" />
                 </div>
               </div>
-              <div className="flex px-5 py-3 items-center justify-between">
-                <div className="flex items-center">
-                  <img
-                    className="h-12 w-12 rounded-full bg-red-500 mr-2"
-                    src=""
-                    alt=""
-                  />
-                  <div className="">
-                    <h1 className="text-sm font-semibold">John Doe</h1>
-                    <h1 className="text-xs">Customers</h1>
+              <div className="h-full overflow-y-auto ">
+                <div className="flex px-5 py-3 items-center justify-between">
+                  <div className="flex items-center">
+                    <img
+                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
+                      src=""
+                      alt=""
+                    />
+                    <div className="">
+                      <h1 className="text-sm font-semibold">John Doe</h1>
+                      <h1 className="text-xs">Customers</h1>
+                    </div>
                   </div>
+                  <AccountCircleOutlinedIcon />
                 </div>
-                <AccountCircleOutlinedIcon />
-              </div>
-              <div className="flex px-5 py-3 items-center justify-between">
-                <div className="flex items-center">
-                  <img
-                    className="h-12 w-12 rounded-full bg-red-500 mr-2"
-                    src=""
-                    alt=""
-                  />
-                  <div className="">
-                    <h1 className="text-sm font-semibold">John Doe</h1>
-                    <h1 className="text-xs">Editor</h1>
+                <div className="flex px-5 py-3 items-center justify-between">
+                  <div className="flex items-center">
+                    <img
+                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
+                      src=""
+                      alt=""
+                    />
+                    <div className="">
+                      <h1 className="text-sm font-semibold">John Doe</h1>
+                      <h1 className="text-xs">Editor</h1>
+                    </div>
                   </div>
+                  <AccountCircleOutlinedIcon />
                 </div>
-                <AccountCircleOutlinedIcon />
+                <div className="flex px-5 py-3 items-center justify-between">
+                  <div className="flex items-center">
+                    <img
+                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
+                      src=""
+                      alt=""
+                    />
+                    <div className="">
+                      <h1 className="text-sm font-semibold">John Doe</h1>
+                      <h1 className="text-xs">Customers</h1>
+                    </div>
+                  </div>
+                  <AccountCircleOutlinedIcon />
+                </div>
+                <div className="flex px-5 py-3 items-center justify-between">
+                  <div className="flex items-center">
+                    <img
+                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
+                      src=""
+                      alt=""
+                    />
+                    <div className="">
+                      <h1 className="text-sm font-semibold">John Doe</h1>
+                      <h1 className="text-xs">Editor</h1>
+                    </div>
+                  </div>
+                  <AccountCircleOutlinedIcon />
+                </div>
+                <div className="flex px-5 py-3 items-center justify-between">
+                  <div className="flex items-center">
+                    <img
+                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
+                      src=""
+                      alt=""
+                    />
+                    <div className="">
+                      <h1 className="text-sm font-semibold">John Doe</h1>
+                      <h1 className="text-xs">Customers</h1>
+                    </div>
+                  </div>
+                  <AccountCircleOutlinedIcon />
+                </div>
+                <div className="flex px-5 py-3 items-center justify-between">
+                  <div className="flex items-center">
+                    <img
+                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
+                      src=""
+                      alt=""
+                    />
+                    <div className="">
+                      <h1 className="text-sm font-semibold">John Doe</h1>
+                      <h1 className="text-xs">Editor</h1>
+                    </div>
+                  </div>
+                  <AccountCircleOutlinedIcon />
+                </div>
+                <div className="flex px-5 py-3 items-center justify-between">
+                  <div className="flex items-center">
+                    <img
+                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
+                      src=""
+                      alt=""
+                    />
+                    <div className="">
+                      <h1 className="text-sm font-semibold">John Doe</h1>
+                      <h1 className="text-xs">Customers</h1>
+                    </div>
+                  </div>
+                  <AccountCircleOutlinedIcon />
+                </div>
+                <div className="flex px-5 py-3 items-center justify-between">
+                  <div className="flex items-center">
+                    <img
+                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
+                      src=""
+                      alt=""
+                    />
+                    <div className="">
+                      <h1 className="text-sm font-semibold">John Doe</h1>
+                      <h1 className="text-xs">Editor</h1>
+                    </div>
+                  </div>
+                  <AccountCircleOutlinedIcon />
+                </div>
               </div>
             </div>
           </div>
