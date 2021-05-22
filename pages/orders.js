@@ -3,9 +3,6 @@ import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import NotificationsOutlinedIcon from "@material-ui/icons/NotificationsOutlined";
 import MoreVertOutlinedIcon from "@material-ui/icons/MoreVertOutlined";
 import DashboardOutlinedIcon from "@material-ui/icons/DashboardOutlined";
-import StarBorderOutlinedIcon from "@material-ui/icons/StarBorderOutlined";
-import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
-import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 
 const orders = () => {
   return (
