@@ -38,76 +38,100 @@ const orders = () => {
             <h1 className="mr-60 ">Order Status</h1>
           </div>
           <div className="h-96 my-4 text-sm overflow-y-auto ">
-            <div className="flex  text-primary-dark  pl-5 pr-28 items-center justify-between">
-              <div className="flex py-2 items-center">
+            <div className="flex  text-primary-dark  pl-5  items-center ">
+              <div className="flex py-2 items-center mr-36">
                 <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                <h1 className="text-sm w-20 truncate "> Mens Plain t-shirt</h1>
+                <h1 className="text-sm w-36 truncate ">
+                  {" "}
+                  Mens Plain t-shirt skjdhjkwshkldjskldj
+                </h1>
               </div>
-              <h1>4</h1>
-              <h1>4,300</h1>
+              <h1 className="mr-64">4</h1>
+              <h1 className="mr-64">4,300</h1>
               <h1>Delivered</h1>
             </div>
-            <div className="flex  text-primary-dark  pl-5 pr-28 items-center justify-between">
-              <div className="flex py-2 items-center">
+            <div className="flex  text-primary-dark  pl-5  items-center ">
+              <div className="flex py-2 items-center mr-36">
                 <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                <h1 className="text-sm w-20 truncate "> Mens Plain t-shirt</h1>
+                <h1 className="text-sm w-36 truncate ">
+                  {" "}
+                  Mens Plain t-shirt skjdhjkwshkldjskldj
+                </h1>
               </div>
-              <h1>4</h1>
-              <h1>4,300</h1>
+              <h1 className="mr-64">4</h1>
+              <h1 className="mr-64">4,300</h1>
               <h1>Delivered</h1>
             </div>
-            <div className="flex  text-primary-dark  pl-5 pr-28 items-center justify-between">
-              <div className="flex py-2 items-center">
+            <div className="flex  text-primary-dark  pl-5  items-center ">
+              <div className="flex py-2 items-center mr-36">
                 <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                <h1 className="text-sm w-20 truncate "> Mens Plain t-shirt</h1>
+                <h1 className="text-sm w-36 truncate ">
+                  {" "}
+                  Mens Plain t-shirt skjdhjkwshkldjskldj
+                </h1>
               </div>
-              <h1>4</h1>
-              <h1>4,300</h1>
+              <h1 className="mr-64">4</h1>
+              <h1 className="mr-64">4,300</h1>
               <h1>Delivered</h1>
             </div>
-            <div className="flex  text-primary-dark  pl-5 pr-28 items-center justify-between">
-              <div className="flex py-2 items-center">
+            <div className="flex  text-primary-dark  pl-5  items-center ">
+              <div className="flex py-2 items-center mr-36">
                 <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                <h1 className="text-sm w-20 truncate "> Mens Plain t-shirt</h1>
+                <h1 className="text-sm w-36 truncate ">
+                  {" "}
+                  Mens Plain t-shirt skjdhjkwshkldjskldj
+                </h1>
               </div>
-              <h1>4</h1>
-              <h1>4,300</h1>
+              <h1 className="mr-64">4</h1>
+              <h1 className="mr-64">4,300</h1>
               <h1>Delivered</h1>
             </div>
-            <div className="flex  text-primary-dark  pl-5 pr-28 items-center justify-between">
-              <div className="flex py-2 items-center">
+            <div className="flex  text-primary-dark  pl-5  items-center ">
+              <div className="flex py-2 items-center mr-36">
                 <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                <h1 className="text-sm w-20 truncate "> Mens Plain t-shirt</h1>
+                <h1 className="text-sm w-36 truncate ">
+                  {" "}
+                  Mens Plain t-shirt skjdhjkwshkldjskldj
+                </h1>
               </div>
-              <h1>4</h1>
-              <h1>4,300</h1>
+              <h1 className="mr-64">4</h1>
+              <h1 className="mr-64">4,300</h1>
               <h1>Delivered</h1>
             </div>
-            <div className="flex  text-primary-dark  pl-5 pr-28 items-center justify-between">
-              <div className="flex py-2 items-center">
+            <div className="flex  text-primary-dark  pl-5  items-center ">
+              <div className="flex py-2 items-center mr-36">
                 <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                <h1 className="text-sm w-20 truncate "> Mens Plain t-shirt</h1>
+                <h1 className="text-sm w-36 truncate ">
+                  {" "}
+                  Mens Plain t-shirt skjdhjkwshkldjskldj
+                </h1>
               </div>
-              <h1>4</h1>
-              <h1>4,300</h1>
+              <h1 className="mr-64">4</h1>
+              <h1 className="mr-64">4,300</h1>
               <h1>Delivered</h1>
             </div>
-            <div className="flex  text-primary-dark  pl-5 pr-28 items-center justify-between">
-              <div className="flex py-2 items-center">
+            <div className="flex  text-primary-dark  pl-5  items-center ">
+              <div className="flex py-2 items-center mr-36">
                 <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                <h1 className="text-sm w-20 truncate "> Mens Plain t-shirt</h1>
+                <h1 className="text-sm w-36 truncate ">
+                  {" "}
+                  Mens Plain t-shirt skjdhjkwshkldjskldj
+                </h1>
               </div>
-              <h1>4</h1>
-              <h1>4,300</h1>
+              <h1 className="mr-64">4</h1>
+              <h1 className="mr-64">4,300</h1>
               <h1>Delivered</h1>
             </div>
-            <div className="flex  text-primary-dark  pl-5 pr-28 items-center justify-between">
-              <div className="flex py-2 items-center">
+            <div className="flex  text-primary-dark  pl-5  items-center ">
+              <div className="flex py-2 items-center mr-36">
                 <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                <h1 className="text-sm w-20 truncate "> Mens Plain t-shirt</h1>
+                <h1 className="text-sm w-36 truncate ">
+                  {" "}
+                  Mens Plain t-shirt skjdhjkwshkldjskldj
+                </h1>
               </div>
-              <h1>4</h1>
-              <h1>4,300</h1>
+              <h1 className="mr-64">4</h1>
+              <h1 className="mr-64">4,300</h1>
               <h1>Delivered</h1>
             </div>
           </div>
