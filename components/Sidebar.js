@@ -24,17 +24,17 @@ const Sidebar = () => {
             <LocalMallOutlinedIcon className="mr-2" /> Products
           </a>
         </Link>
-        <Link href="/">
+        <Link href="#">
           <a className=" my-4 ">
             <CategoryOutlinedIcon className="mr-2" /> Categories
           </a>
         </Link>
-        <Link href="/">
+        <Link href="/orders">
           <a className=" my-4 ">
             <ShoppingCartOutlinedIcon className="mr-2" /> Orders
           </a>
         </Link>
-        <Link href="/">
+        <Link href="/customers">
           <a className=" my-4 ">
             <PeopleAltOutlinedIcon className="mr-2" /> Customers
           </a>
