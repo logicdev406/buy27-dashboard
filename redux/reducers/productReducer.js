@@ -1,4 +1,4 @@
-import * as actionTypes from "../constants/productConstants";
+import * as actionTypes from "../types";
 
 export const getProductsCount = (state = { count: "" }, action) => {
   switch (action.type) {
