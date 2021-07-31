@@ -1,18 +1,18 @@
-import * as actionTypes from "../types";
+import * as t from "../types";
 
-export const getProductsCount = (state = { count: "" }, action) => {
+const getProductsCount = (state = { count: "" }, action) => {
   switch (action.type) {
-    case actionTypes.GET_PRODUCT_COUNT_REQUEST:
+    case t.GET_PRODUCT_COUNT_REQUEST:
       return {
         loading: true,
         count: "",
       };
-    case actionTypes.GET_PRODUCT_COUNT_SUCCESS:
+    case t.GET_PRODUCT_COUNT_SUCCESS:
       return {
         loading: false,
         count: action.payload,
       };
-    case actionTypes.GET_PRODUCT_COUNT_FAIL:
+    case t.GET_PRODUCT_COUNT_FAIL:
       return {
         loading: false,
         error: action.payload,
@@ -22,3 +22,5 @@ export const getProductsCount = (state = { count: "" }, action) => {
       return state;
   }
 };
+
+export default getProductsCount;

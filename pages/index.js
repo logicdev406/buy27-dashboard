@@ -1,5 +1,11 @@
+import { useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
+import { useState } from "react";
+import { connect } from "react-redux";
+import { getProductsCount } from "../redux/actions/productAction";
+import { setInfo } from "../redux/actions/main";
+
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";
@@ -7,7 +13,30 @@ import MonetizationOnOutlinedIcon from "@material-ui/icons/MonetizationOnOutline
 import ArrowForwardOutlinedIcon from "@material-ui/icons/ArrowForwardOutlined";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 
-export default function Home() {
+// const mapStateToProps = (state) => {
+//   return { name: state.main.name };
+// };
+
+// const mapDispatchToProps = {
+//   setInfo,
+// };
+
+const mapStateToProps = (state) => {
+  return { count: state.getProductsCount.count };
+};
+
+const mapDispatchToProps = {
+  getProductsCount,
+};
+
+const Home = (props) => {
+  const { count, getProductsCount } = props;
+  // const [newName, setName] = useState("");
+
+  useEffect(() => {
+    getProductsCount();
+  }, [getProductsCount]);
+
   return (
     <div className="flex  w-screen bg-gray-200">
       <div className="flex ">
@@ -306,4 +335,6 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
