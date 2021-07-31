@@ -34,7 +34,7 @@ const Home = (props) => {
   // const [newName, setName] = useState("");
 
   useEffect(() => {
-    getProductsCount();
+    // getProductsCount();
   }, [getProductsCount]);
 
   return (
