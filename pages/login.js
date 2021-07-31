@@ -1,9 +1,19 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import validate from ".././helper/validator";
+import { login } from "../redux/actions/authAction";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import VisibilityIcon from "@material-ui/icons/Visibility";
+import { connect } from "react-redux";
 // import Buy27logo from "../public/buy27logo.png";
+
+const mapStateToProps = (state) => {
+  return { count: state.authUser.user };
+};
+
+const mapDispatchToProps = {
+  login,
+};
 
 const Login = () => {
   const [values, setvalues] = useState({
@@ -34,7 +44,7 @@ const Login = () => {
       return null;
     }
     // console.log(values);
-    // dispatch(logIn(values));
+    login(values);
   };
 
   const ToggleShowPassword = () => {
@@ -117,4 +127,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
