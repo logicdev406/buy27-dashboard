@@ -33,7 +33,7 @@ export const login = (formData) => async (dispatch) => {
     dispatch({ type: t.LOGIN_REQUEST });
 
     const { data } = await axios.post(
-      `backend.buy27.ng/api/users/login`,
+      "https://backend.buy27.ng/api/users/login",
       formData
     );
 

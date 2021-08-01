@@ -1,25 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import validate from ".././helper/validator";
 import { login } from "../redux/actions/authAction";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import { connect } from "react-redux";
-// import Buy27logo from "../public/buy27logo.png";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import buy27logo from "../assets/images/buy27logo.png";
 
 const mapStateToProps = (state) => {
-  return { count: state.authUser.user };
+  return { user: state.login };
 };
 
 const mapDispatchToProps = {
   login,
 };
 
-const Login = () => {
+const Login = (props) => {
+  const { user, login } = props;
   const [values, setvalues] = useState({
     email: "",
     password: "",
   });
+
+  const loggedInuser = localStorage.getItem("token");
+
+  useEffect(() => {
+    if (!loggedInuser) {
+      router.push("/redirect"); // redirects if there is no user
+    }
+  }, []);
 
   const [errors, setErrors] = useState({});
 
@@ -43,7 +53,6 @@ const Login = () => {
     ) {
       return null;
     }
-    // console.log(values);
     login(values);
   };
 
@@ -53,6 +62,9 @@ const Login = () => {
 
   return (
     <div className="h-screen w-full flex flex-col items-center justify-center bg-gray-200">
+      <a href="/">
+        <img className="w-40 mb-8" src={buy27logo} alt="logo" id="buy27logo" />
+      </a>
       <div className="flex flex-col items-center pt-4 pb-8 bg-white shadow-lg rounded">
         <h1 className="text-2xl md:text-3xl font-bold mb-2">Login</h1>
         <div className="border-b border-gray w-full my-2"></div>
@@ -71,11 +83,11 @@ const Login = () => {
           {errors.email && (
             <p className="text-red-500 text-sm ">{errors.email}</p>
           )}
-          {/* {error && (
+          {user.error && (
             <p className="text-red-500 text-sm ">
               Incorrect E-mail or Password
             </p>
-          )} */}
+          )}
         </div>
         <div className="flex flex-col px-4 md:px-8 mt-8">
           <div className="flex justify-between text-sm text-primary-dark mb-2">
@@ -110,17 +122,21 @@ const Login = () => {
           {errors.password && (
             <p className="text-red-500 text-sm ">{errors.password}</p>
           )}
-          {/* {error && (
+          {user.error && (
             <p className="text-red-500 text-sm ">
               Incorrect E-mail or Password
             </p>
-          )} */}
+          )}
         </div>
         <button
           onClick={handleSubmit}
-          className="h-10 px-32 mt-8 mb-14 focus:outline-none bg-primary-dark hover:bg-primary-light text-white rounded"
+          className="h-10 w-96 mt-8 mb-14 focus:outline-none bg-primary-dark hover:bg-primary-light text-white rounded"
         >
-          Login
+          {user.loading ? (
+            <CircularProgress size={25} color="inherit" />
+          ) : (
+            "Login"
+          )}
         </button>
       </div>
     </div>

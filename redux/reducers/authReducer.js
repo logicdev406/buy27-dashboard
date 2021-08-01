@@ -1,6 +1,6 @@
 import * as t from "../types";
 
-const login = (state = { user: {} }, action) => {
+export const loginReducer = (state = { user: {} }, action) => {
   switch (action.type) {
     case t.LOGIN_REQUEST:
       return {
@@ -10,7 +10,7 @@ const login = (state = { user: {} }, action) => {
     case t.LOGIN_SUCCESS:
       localStorage.setItem("token", action.payload.token);
       return {
-        data: action.payload,
+        user: action.payload,
         isAuthenticated: true,
         loading: false,
       };
@@ -28,7 +28,7 @@ const login = (state = { user: {} }, action) => {
   }
 };
 
-const signUp = (state = { user: {} }, action) => {
+export const signUpReducer = (state = { user: {} }, action) => {
   switch (action.type) {
     case t.SIGNUP_REQUEST:
       return {
@@ -50,7 +50,7 @@ const signUp = (state = { user: {} }, action) => {
   }
 };
 
-const loadUser = (state = { user: {} }, action) => {
+export const loadUserReducer = (state = { user: {} }, action) => {
   switch (action.type) {
     case t.USER_REQUEST:
       return {
@@ -73,8 +73,4 @@ const loadUser = (state = { user: {} }, action) => {
     default:
       return state;
   }
-};
-
-export default {
-  authUser,
 };
