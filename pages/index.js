@@ -22,7 +22,7 @@ import { useRouter } from "next/router";
 // };
 
 const mapStateToProps = (state) => {
-  return { count: state.getProductsCount.count };
+  return { count: state.getProductsCount };
 };
 
 const mapDispatchToProps = {
@@ -31,7 +31,7 @@ const mapDispatchToProps = {
 
 const Home = (props) => {
   const { count, getProductsCount } = props;
-  // console.log(props);
+  const productCount = count.count;
 
   const router = useRouter();
 
@@ -39,7 +39,8 @@ const Home = (props) => {
     if (!props.token) {
       router.push("/login"); // redirects if there is no user
     }
-    getProductsCount();
+    const token = props.token;
+    getProductsCount(token);
   }, [getProductsCount]);
 
   return (
@@ -88,7 +89,7 @@ const Home = (props) => {
             <div className=" flex h-24 w-64 px-5 ml-8 bg-white border-2 border-gray-300 rounded shadow-lg items-center justify-between text-primary-dark">
               <div>
                 <h1 className=" w-40 font-bold text-2xl overflow-ellipsis ">
-                  54
+                  {count.loading ? "Loading..." : productCount}
                 </h1>
                 <h1 className=" text-sm">Products</h1>
               </div>

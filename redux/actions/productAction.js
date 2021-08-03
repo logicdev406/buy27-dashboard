@@ -1,12 +1,18 @@
 import * as t from "../types";
 import axios from "axios";
+import setAuthToken from "../../helper/setAuthToken";
 // import { request } from "../../util/request";
 
-export const getProductsCount = () => async (dispatch) => {
+export const getProductsCount = (token) => async (dispatch) => {
   try {
+    if (token) {
+      setAuthToken(token);
+    }
     dispatch({ type: t.GET_PRODUCT_COUNT_REQUEST });
 
-    const { data } = await axios.get("localhost:3000/api/products/get/count");
+    const { data } = await axios.get(
+      "https://backend.buy27.ng/api/products/get/count"
+    );
 
     dispatch({
       type: t.GET_PRODUCT_COUNT_SUCCESS,
