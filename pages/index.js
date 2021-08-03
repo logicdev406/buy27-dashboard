@@ -4,8 +4,6 @@ import Navbar from "../components/Navbar";
 import { useState } from "react";
 import { connect } from "react-redux";
 import { getProductsCount } from "../redux/actions/productAction";
-import { setInfo } from "../redux/actions/authAction";
-
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";

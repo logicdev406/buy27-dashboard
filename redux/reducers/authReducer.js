@@ -1,4 +1,5 @@
 import * as t from "../types";
+import { useCookies } from "react-cookie";
 
 export const loginReducer = (state = { user: {} }, action) => {
   switch (action.type) {
@@ -8,7 +9,12 @@ export const loginReducer = (state = { user: {} }, action) => {
         isAuthenticated: false,
       };
     case t.LOGIN_SUCCESS:
-      localStorage.setItem("token", action.payload.token);
+      const [cookie, setCookie] = useCookies(["token"]);
+      setCookie("token", JSON.stringify(action.payload.token), {
+        path: "/",
+        maxAge: 3600, // Expires after 1hr
+        sameSite: true,
+      });
       return {
         user: action.payload,
         isAuthenticated: true,

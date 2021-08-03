@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import { useRouter } from "next/router";
 import validate from ".././helper/validator";
 import { login } from "../redux/actions/authAction";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
@@ -23,12 +23,13 @@ const Login = (props) => {
     password: "",
   });
 
-  const loggedInuser = localStorage.getItem("token");
+  console.log(user);
 
   useEffect(() => {
-    if (!loggedInuser) {
-      router.push("/redirect"); // redirects if there is no user
-    }
+    // const router = useRouter();
+    // if (token) {
+    //   router.push("/"); // redirects if there is no user
+    // }
   }, []);
 
   const [errors, setErrors] = useState({});
@@ -42,7 +43,6 @@ const Login = (props) => {
       [name]: value,
     });
   };
-  console.log();
 
   const handleSubmit = async () => {
     setErrors(validate(values));
