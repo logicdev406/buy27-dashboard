@@ -10,6 +10,8 @@ import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";
 import MonetizationOnOutlinedIcon from "@material-ui/icons/MonetizationOnOutlined";
 import ArrowForwardOutlinedIcon from "@material-ui/icons/ArrowForwardOutlined";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
+import { parseCookies } from "../helper/index";
+import { useRouter } from "next/router";
 
 // const mapStateToProps = (state) => {
 //   return { name: state.main.name };
@@ -29,9 +31,21 @@ const mapDispatchToProps = {
 
 const Home = (props) => {
   const { count, getProductsCount } = props;
-  // const [newName, setName] = useState("");
+  console.log(props.token || "");
+
+  // useEffect(() => {
+  //   const router = useRouter();
+  //   if (token) {
+  //     router.push("/"); // redirects if there is no user
+  //   }
+  // }, []);
+
+  const router = useRouter();
 
   useEffect(() => {
+    if (!props.token) {
+      router.push("/login"); // redirects if there is no user
+    }
     // getProductsCount();
   }, [getProductsCount]);
 
@@ -333,6 +347,21 @@ const Home = (props) => {
       </div>
     </div>
   );
+};
+
+Home.getInitialProps = async ({ req, res }) => {
+  const cookies = parseCookies(req);
+
+  // if (res) {
+  //   if (Object.keys(data).length === 0 && data.constructor === Object) {
+  //     res.writeHead(301, { Location: "/login" });
+  //     res.end();
+  //   }
+  // }
+
+  return {
+    token: cookies.token,
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

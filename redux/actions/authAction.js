@@ -28,7 +28,7 @@ export const signUp = (formData) => async (dispatch) => {
   }
 };
 
-export const login = (formData) => async (dispatch) => {
+export const loginUser = (formData) => async (dispatch) => {
   try {
     dispatch({ type: t.LOGIN_REQUEST });
 

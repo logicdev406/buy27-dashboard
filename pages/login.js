@@ -1,36 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import validate from ".././helper/validator";
-import { login } from "../redux/actions/authAction";
+import { loginUser } from "../redux/actions/authAction";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import { connect } from "react-redux";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import buy27logo from "../assets/images/buy27logo.png";
+import Cookie from "js-cookie";
+import { parseCookies } from "../helper/index";
 
-const mapStateToProps = (state) => {
-  return { user: state.login };
-};
-
-const mapDispatchToProps = {
-  login,
-};
-
-const Login = (props) => {
-  const { user, login } = props;
+const Login = (props, { token }) => {
+  // const [token, setToken] = useState("");
+  const { user, loginUser } = props;
   const [values, setvalues] = useState({
     email: "",
     password: "",
   });
 
-  console.log(user);
+  const router = useRouter();
+  console.log(token);
 
-  useEffect(() => {
-    // const router = useRouter();
-    // if (token) {
-    //   router.push("/"); // redirects if there is no user
-    // }
-  }, []);
+  // useEffect(() => {
+  //   if (props.token) {
+  //     router.push("/"); // redirects if there is no user
+  //   }
+  // }, []);
 
   const [errors, setErrors] = useState({});
 
@@ -53,7 +48,10 @@ const Login = (props) => {
     ) {
       return null;
     }
-    login(values);
+    await loginUser(values);
+    // const token = await user.user.token;
+    // console.log(token);
+    Cookie.set("token", token, { expires: 1 / 24 });
   };
 
   const ToggleShowPassword = () => {
@@ -141,6 +139,33 @@ const Login = (props) => {
       </div>
     </div>
   );
+};
+
+export function getServerSideProps({ req, res }) {
+  return { props: { token: req.cookies.token } };
+}
+
+// Login.getInitialProps = async ({ req }) => {
+//   const cookies = parseCookies(req);
+
+//   // if (res) {
+//   //   if (Object.keys(data).length === 0 && data.constructor === Object) {
+//   //     res.writeHead(301, { Location: "/login" });
+//   //     res.end();
+//   //   }
+//   // }
+
+//   return {
+//     token: cookies.token,
+//   };
+// };
+
+const mapStateToProps = (state) => {
+  return { user: state.login };
+};
+
+const mapDispatchToProps = {
+  loginUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
