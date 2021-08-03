@@ -7,11 +7,11 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import { connect } from "react-redux";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import buy27logo from "../assets/images/buy27logo.png";
-import Cookie from "js-cookie";
+import { useCookies } from "react-cookie";
 import { parseCookies } from "../helper/index";
 
-const Login = (props, { token }) => {
-  // const [token, setToken] = useState("");
+const Login = (props) => {
+  const [cookie, setCookie] = useCookies("");
   const { user, loginUser } = props;
   const [values, setvalues] = useState({
     email: "",
@@ -19,13 +19,12 @@ const Login = (props, { token }) => {
   });
 
   const router = useRouter();
-  console.log(token);
 
-  // useEffect(() => {
-  //   if (props.token) {
-  //     router.push("/"); // redirects if there is no user
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (props.token) {
+      router.push("/"); // redirects if there is no user
+    }
+  }, []);
 
   const [errors, setErrors] = useState({});
 
@@ -48,10 +47,18 @@ const Login = (props, { token }) => {
     ) {
       return null;
     }
-    await loginUser(values);
-    // const token = await user.user.token;
-    // console.log(token);
-    Cookie.set("token", token, { expires: 1 / 24 });
+    loginUser(values);
+    const token = user.user.token || "";
+    if (token === "") {
+      return null;
+    }
+
+    setCookie("token", token, {
+      path: "/",
+      maxAge: 3600, // Expires after 1hr
+      sameSite: true,
+    });
+    router.push("/");
   };
 
   const ToggleShowPassword = () => {
@@ -141,24 +148,13 @@ const Login = (props, { token }) => {
   );
 };
 
-export function getServerSideProps({ req, res }) {
-  return { props: { token: req.cookies.token } };
-}
+Login.getInitialProps = ({ req, res }) => {
+  const cookies = parseCookies(req);
 
-// Login.getInitialProps = async ({ req }) => {
-//   const cookies = parseCookies(req);
-
-//   // if (res) {
-//   //   if (Object.keys(data).length === 0 && data.constructor === Object) {
-//   //     res.writeHead(301, { Location: "/login" });
-//   //     res.end();
-//   //   }
-//   // }
-
-//   return {
-//     token: cookies.token,
-//   };
-// };
+  return {
+    token: cookies.token,
+  };
+};
 
 const mapStateToProps = (state) => {
   return { user: state.login };

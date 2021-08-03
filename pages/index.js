@@ -31,14 +31,7 @@ const mapDispatchToProps = {
 
 const Home = (props) => {
   const { count, getProductsCount } = props;
-  console.log(props.token || "");
-
-  // useEffect(() => {
-  //   const router = useRouter();
-  //   if (token) {
-  //     router.push("/"); // redirects if there is no user
-  //   }
-  // }, []);
+  // console.log(props);
 
   const router = useRouter();
 
@@ -46,7 +39,7 @@ const Home = (props) => {
     if (!props.token) {
       router.push("/login"); // redirects if there is no user
     }
-    // getProductsCount();
+    getProductsCount();
   }, [getProductsCount]);
 
   return (
