@@ -89,7 +89,11 @@ const Home = (props) => {
             <div className=" flex h-24 w-64 px-5 ml-8 bg-white border-2 border-gray-300 rounded shadow-lg items-center justify-between text-primary-dark">
               <div>
                 <h1 className=" w-40 font-bold text-2xl overflow-ellipsis ">
-                  {count.loading ? "Loading..." : productCount}
+                  {count.loading
+                    ? "Loading..."
+                    : count.error
+                    ? "Error"
+                    : productCount}
                 </h1>
                 <h1 className=" text-sm">Products</h1>
               </div>
