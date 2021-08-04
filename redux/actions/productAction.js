@@ -34,19 +34,19 @@ export const getUsersCount = (token) => async (dispatch) => {
     if (token) {
       setAuthToken(token);
     }
-    dispatch({ type: t.GET_PRODUCT_COUNT_REQUEST });
+    dispatch({ type: t.GET_USERS_COUNT_REQUEST });
 
     const { data } = await axios.get(
       "https://backend.buy27.ng/api/users/get/count"
     );
 
     dispatch({
-      type: t.GET_PRODUCT_COUNT_SUCCESS,
+      type: t.GET_USERS_COUNT_SUCCESS,
       payload: data.data,
     });
   } catch (error) {
     dispatch({
-      type: t.GET_PRODUCT_COUNT_FAIL,
+      type: t.GET_USERS_COUNT_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -54,5 +54,3 @@ export const getUsersCount = (token) => async (dispatch) => {
     });
   }
 };
-
-///api/products/get/count

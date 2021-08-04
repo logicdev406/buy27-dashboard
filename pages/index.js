@@ -3,7 +3,10 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
 import { connect } from "react-redux";
-import { getProductsCount } from "../redux/actions/productAction";
+import {
+  getProductsCount,
+  getUsersCount,
+} from "../redux/actions/productAction";
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";
@@ -22,16 +25,20 @@ import { useRouter } from "next/router";
 // };
 
 const mapStateToProps = (state) => {
-  return { count: state.getProductsCount };
+  return { count: state.getProductsCount, usersCount: state.getUsersCount };
 };
 
 const mapDispatchToProps = {
   getProductsCount,
+  getUsersCount,
 };
 
 const Home = (props) => {
   const { count, getProductsCount } = props;
+  const { usersCount, getUsersCount } = props;
+
   const productCount = count.count;
+  const totalUserscount = usersCount.count;
 
   const router = useRouter();
 
@@ -41,6 +48,7 @@ const Home = (props) => {
     }
     const token = props.token;
     getProductsCount(token);
+    getUsersCount(token);
   }, [getProductsCount]);
 
   return (
@@ -53,7 +61,11 @@ const Home = (props) => {
             <div className=" flex h-24 w-64 px-5 mr-8 bg-white border-2 border-gray-300  rounded shadow-lg items-center justify-between text-primary-dark">
               <div>
                 <h1 className=" w-40 font-bold text-2xl overflow-ellipsis ">
-                  63
+                  {usersCount.loading
+                    ? "Loading..."
+                    : usersCount.error
+                    ? "Error"
+                    : totalUserscount}
                 </h1>
                 <h1 className=" text-sm">Customers</h1>
               </div>
