@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import {
   getProductsCount,
   getUsersCount,
+  getOrdersCount,
+  getTotalErnings,
 } from "../redux/actions/productAction";
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
@@ -15,30 +17,34 @@ import ArrowForwardOutlinedIcon from "@material-ui/icons/ArrowForwardOutlined";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import { parseCookies } from "../helper/index";
 import { useRouter } from "next/router";
-
-// const mapStateToProps = (state) => {
-//   return { name: state.main.name };
-// };
-
-// const mapDispatchToProps = {
-//   setInfo,
-// };
+import NumberFormat from "react-number-format";
 
 const mapStateToProps = (state) => {
-  return { count: state.getProductsCount, usersCount: state.getUsersCount };
+  return {
+    count: state.getProductsCount,
+    usersCount: state.getUsersCount,
+    totalErnings: state.getTotalErnings,
+    ordersCount: state.getOrdersCount,
+  };
 };
 
 const mapDispatchToProps = {
   getProductsCount,
   getUsersCount,
+  getOrdersCount,
+  getTotalErnings,
 };
 
 const Home = (props) => {
   const { count, getProductsCount } = props;
   const { usersCount, getUsersCount } = props;
+  const { ordersCount, getOrdersCount } = props;
+  const { totalErnings, getTotalErnings } = props;
 
   const productCount = count.count;
   const totalUserscount = usersCount.count;
+  const totalOrders = ordersCount.count;
+  const totalErning = totalErnings.amount;
 
   const router = useRouter();
 
@@ -49,7 +55,9 @@ const Home = (props) => {
     const token = props.token;
     getProductsCount(token);
     getUsersCount(token);
-  }, [getProductsCount]);
+    getTotalErnings(token);
+    getOrdersCount(token);
+  }, [getProductsCount, getUsersCount, getTotalErnings, getOrdersCount]);
 
   return (
     <div className="flex  w-screen bg-gray-200">
@@ -77,7 +85,13 @@ const Home = (props) => {
             <div className=" flex h-24 w-64 px-5 mx-8 bg-white border-2 border-gray-300  rounded shadow-lg items-center justify-between text-primary-dark">
               <div>
                 <h1 className=" w-40 font-bold text-2xl overflow-ellipsis ">
-                  29
+                  {ordersCount.loading
+                    ? "Loading..."
+                    : ordersCount.error === "Fetch total count of orders faild"
+                    ? 0
+                    : ordersCount.error
+                    ? "Error"
+                    : totalOrders}
                 </h1>
                 <h1 className=" text-sm">Orders</h1>
               </div>
@@ -89,7 +103,18 @@ const Home = (props) => {
             <div className=" flex h-24 w-64 px-5 mx-8 bg-white border-2 border-gray-300  rounded shadow-lg items-center justify-between text-primary-dark">
               <div>
                 <h1 className=" w-40 font-bold text-2xl truncate  ">
-                  1,200.0045345345345345345345
+                  {totalErnings.loading ? (
+                    "Loading..."
+                  ) : totalErnings.error ? (
+                    "Error"
+                  ) : (
+                    <NumberFormat
+                      value={totalErning}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                      prefix={"₦"}
+                    />
+                  )}
                 </h1>
                 <h1 className=" text-sm">Total ernings</h1>
               </div>
