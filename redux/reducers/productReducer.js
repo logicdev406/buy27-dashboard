@@ -92,9 +92,33 @@ const getOrdersCount = (state = { count: "" }, action) => {
   }
 };
 
+const getOrders = (state = { orders: [] }, action) => {
+  switch (action.type) {
+    case t.GET_ORDERS_REQUEST:
+      return {
+        loading: true,
+        orders: [],
+      };
+    case t.GET_ORDERS_SUCCESS:
+      return {
+        loading: false,
+        orders: action.payload,
+      };
+    case t.GET_ORDERS_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
 module.exports = {
   getProductsCount,
   getUsersCount,
   getOrdersCount,
   getTotalErnings,
+  getOrders,
 };

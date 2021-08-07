@@ -86,6 +86,30 @@ export const getTotalErnings = (token) => async (dispatch) => {
     if (token) {
       setAuthToken(token);
     }
+    dispatch({ type: t.GET_ORDERS_REQUEST });
+
+    const { data } = await axios.get("https://backend.buy27.ng/api/orders");
+
+    dispatch({
+      type: t.GET_ORDERS_SUCCESS,
+      payload: data.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: t.GET_ORDERS_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const getOrders = (token) => async (dispatch) => {
+  try {
+    if (token) {
+      setAuthToken(token);
+    }
     dispatch({ type: t.GET_TOTAL_ERNINGS_COUNT_REQUEST });
 
     const { data } = await axios.get(
