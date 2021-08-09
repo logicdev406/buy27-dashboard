@@ -20,8 +20,9 @@ import { parseCookies } from "../helper/index";
 import { useRouter } from "next/router";
 import NumberFormat from "react-number-format";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import CheckIcon from "@material-ui/icons/Check";
+import CheckRoundedIcon from "@material-ui/icons/Check";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
+import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 import dateFormat from "dateformat";
 
 const mapStateToProps = (state) => {
@@ -164,7 +165,7 @@ const Home = (props) => {
                   <MoreHorizIcon fontSize="small" />
                 </div>
                 <h1>Order</h1>
-                <h1 className="ml-14">Purchases</h1>
+                <h1 className="ml-20">Purchases</h1>
                 <h1>Ship to</h1>
                 <h1>Date</h1>
                 <h1>Total</h1>
@@ -178,6 +179,19 @@ const Home = (props) => {
                   : orderList.map((item) => {
                       return (
                         <div className="flex py-2 text-primary-dark px-5 items-center justify-between">
+                          {item.status === "pending" ? (
+                            <div className="flex items-center justify-center h-5 w-5 bg-black text-white rounded-full">
+                              <MoreHorizIcon fontSize="small" />
+                            </div>
+                          ) : item.status === "delivered" ? (
+                            <div className="flex items-center justify-center h-5 w-5 bg-blue-500 text-white rounded-full">
+                              <CheckRoundedIcon fontSize="small" />
+                            </div>
+                          ) : (
+                            <div className="flex items-center justify-center h-5 w-5 bg-red-700 text-white rounded-full">
+                              <CloseOutlinedIcon fontSize="small" />
+                            </div>
+                          )}
                           <div className="flex flex-col items-start">
                             <p className="text-sm w-44 truncate ">
                               {" "}
@@ -213,7 +227,7 @@ const Home = (props) => {
                               <MoreHorizIcon fontSize="small" />
                             </div>
                             <div className="flex items-center justify-center h-6 w-6 mx-1 rounded shadow-lg border border-primary-dark">
-                              <CheckIcon fontSize="small" />
+                              <CheckRoundedIcon fontSize="small" />
                             </div>
                             <div className="flex items-center justify-center h-6 w-6 ml-1 rounded shadow-lg border border-primary-dark">
                               <VisibilityOutlinedIcon fontSize="small" />
