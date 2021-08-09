@@ -8,6 +8,7 @@ import {
   getUsersCount,
   getOrdersCount,
   getTotalErnings,
+  getOrders,
 } from "../redux/actions/productAction";
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
@@ -18,6 +19,10 @@ import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined"
 import { parseCookies } from "../helper/index";
 import { useRouter } from "next/router";
 import NumberFormat from "react-number-format";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import CheckIcon from "@material-ui/icons/Check";
+import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
+import dateFormat from "dateformat";
 
 const mapStateToProps = (state) => {
   return {
@@ -25,6 +30,7 @@ const mapStateToProps = (state) => {
     usersCount: state.getUsersCount,
     totalErnings: state.getTotalErnings,
     ordersCount: state.getOrdersCount,
+    orders: state.getOrders,
   };
 };
 
@@ -33,6 +39,7 @@ const mapDispatchToProps = {
   getUsersCount,
   getOrdersCount,
   getTotalErnings,
+  getOrders,
 };
 
 const Home = (props) => {
@@ -40,11 +47,13 @@ const Home = (props) => {
   const { usersCount, getUsersCount } = props;
   const { ordersCount, getOrdersCount } = props;
   const { totalErnings, getTotalErnings } = props;
+  const { orders, getOrders } = props;
 
   const productCount = count.count;
   const totalUserscount = usersCount.count;
   const totalOrders = ordersCount.count;
   const totalErning = totalErnings.amount;
+  const orderList = orders.orders;
 
   const router = useRouter();
 
@@ -57,6 +66,7 @@ const Home = (props) => {
     getUsersCount(token);
     getTotalErnings(token);
     getOrdersCount(token);
+    getOrders(token);
   }, [getProductsCount, getUsersCount, getTotalErnings, getOrdersCount]);
 
   return (
@@ -149,109 +159,69 @@ const Home = (props) => {
                   <ArrowForwardOutlinedIcon fontSize="inherit" />
                 </div>
               </div>
-              <div className=" flex items-center text-primary-dark justify-between py-3 pl-5 pr-28 border-b-2 text-sm text-semibold">
-                <h1>Order Details</h1>
-                <h1>Quantity</h1>
-                <h1>Order Price</h1>
-                <h1>Status</h1>
+              <div className=" flex items-center text-primary-dark justify-between py-3 px-5  border-b-2 text-sm font-bold">
+                <div className=" flex items-center justify-center h-5 w-5 bg-black text-white rounded-full">
+                  <MoreHorizIcon fontSize="small" />
+                </div>
+                <h1>Order</h1>
+                <h1 className="ml-14">Purchases</h1>
+                <h1>Ship to</h1>
+                <h1>Date</h1>
+                <h1>Total</h1>
+                <h1 className="mr-8">Action</h1>
               </div>
               <div className="h-96 my-2 text-sm overflow-y-auto ">
-                <div className="flex  text-primary-dark pl-5 pr-28 items-center justify-between">
-                  <div className="flex py-2 items-center">
-                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                    <h1 className="text-sm w-20 truncate ">
-                      {" "}
-                      Mens Plain t-shirt
-                    </h1>
-                  </div>
-                  <h1>4</h1>
-                  <h1>4,300</h1>
-                  <h1>Delivered</h1>
-                </div>
-                <div className="flex text-primary-dark pl-5 pr-28 items-center justify-between">
-                  <div className="flex py-2 items-center">
-                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                    <h1 className="text-sm w-20 truncate ">
-                      {" "}
-                      Mens Plain t-shirt
-                    </h1>
-                  </div>
-                  <h1>4</h1>
-                  <h1>4,300</h1>
-                  <h1>Delivered</h1>
-                </div>
-                <div className="flex  text-primary-dark pl-5 pr-28 items-center justify-between">
-                  <div className="flex py-2 items-center">
-                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                    <h1 className="text-sm w-20 truncate ">
-                      {" "}
-                      Mens Plain t-shirt
-                    </h1>
-                  </div>
-                  <h1>4</h1>
-                  <h1>4,300</h1>
-                  <h1>Delivered</h1>
-                </div>
-                <div className="flex text-primary-dark pl-5 pr-28 items-center justify-between">
-                  <div className="flex py-2 items-center">
-                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                    <h1 className="text-sm w-20 truncate ">
-                      {" "}
-                      Mens Plain t-shirt
-                    </h1>
-                  </div>
-                  <h1>4</h1>
-                  <h1>4,300</h1>
-                  <h1>Delivered</h1>
-                </div>
-                <div className="flex  text-primary-dark pl-5 pr-28 items-center justify-between">
-                  <div className="flex py-2 items-center">
-                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                    <h1 className="text-sm w-20 truncate ">
-                      {" "}
-                      Mens Plain t-shirt
-                    </h1>
-                  </div>
-                  <h1>4</h1>
-                  <h1>4,300</h1>
-                  <h1>Delivered</h1>
-                </div>
-                <div className="flex text-primary-dark pl-5 pr-28 items-center justify-between">
-                  <div className="flex py-2 items-center">
-                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                    <h1 className="text-sm w-20 truncate ">
-                      {" "}
-                      Mens Plain t-shirt
-                    </h1>
-                  </div>
-                  <h1>4</h1>
-                  <h1>4,300</h1>
-                  <h1>Delivered</h1>
-                </div>
-                <div className="flex  text-primary-dark pl-5 pr-28 items-center justify-between">
-                  <div className="flex py-2 items-center">
-                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                    <h1 className="text-sm w-20 truncate ">
-                      {" "}
-                      Mens Plain t-shirt
-                    </h1>
-                  </div>
-                  <h1>4</h1>
-                  <h1>4,300</h1>
-                  <h1>Delivered</h1>
-                </div>
-                <div className="flex text-primary-dark pl-5 pr-28 items-center justify-between">
-                  <div className="flex py-2 items-center">
-                    <img className="h-10 w-8 bg-red-300 mr-2" src="" alt="" />
-                    <h1 className="text-sm w-20 truncate ">
-                      {" "}
-                      Mens Plain t-shirt
-                    </h1>
-                  </div>
-                  <h1>4</h1>
-                  <h1>4,300</h1>
-                  <h1>Delivered</h1>
-                </div>
+                {orders.loading
+                  ? "Loading..."
+                  : orders.error
+                  ? "Error"
+                  : orderList.map((item) => {
+                      return (
+                        <div className="flex py-2 text-primary-dark px-5 items-center justify-between">
+                          <div className="flex flex-col items-start">
+                            <p className="text-sm w-44 truncate ">
+                              {" "}
+                              #{item.orderNo} by {item.firstName}{" "}
+                              {item.lastName}
+                            </p>
+                            <p className="text-sm   "> {item.user.email} </p>
+                          </div>
+                          <p>
+                            {" "}
+                            {item.orderItems.length}{" "}
+                            {item.orderItems.length > 1 ? "items" : "item"}{" "}
+                          </p>
+                          <div className="flex flex-col items-start">
+                            <p className="text-sm   ">
+                              {" "}
+                              {item.street}, {item.city}{" "}
+                            </p>
+                            <p className="text-sm   "> {item.lga} </p>
+                          </div>
+                          <p> {dateFormat(item.dateOrdered, "yyyy/mm/dd")} </p>
+                          <p>
+                            {" "}
+                            <NumberFormat
+                              value={item.totalPrice}
+                              displayType={"text"}
+                              thousandSeparator={true}
+                              prefix={"₦"}
+                            />
+                          </p>
+                          <div className="flex items-start">
+                            <div className="flex items-center justify-center h-6 w-6 mr-1 rounded shadow-lg border border-primary-dark">
+                              <MoreHorizIcon fontSize="small" />
+                            </div>
+                            <div className="flex items-center justify-center h-6 w-6 mx-1 rounded shadow-lg border border-primary-dark">
+                              <CheckIcon fontSize="small" />
+                            </div>
+                            <div className="flex items-center justify-center h-6 w-6 ml-1 rounded shadow-lg border border-primary-dark">
+                              <VisibilityOutlinedIcon fontSize="small" />
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
               </div>
             </div>
             <div className="w-96 bg-white  rounded border-2 border-gray-300 shadow-lg ">
