@@ -2,10 +2,9 @@ import { combineReducers } from "redux";
 import {
   getProductsCount,
   getUsersCount,
-  getOrdersCount,
   getTotalErnings,
-  getOrders,
 } from "./productReducer";
+import { getOrdersCount, getOrders } from "./orderReducer";
 import { loginReducer } from "./authReducer";
 
 const rootReducer = combineReducers({

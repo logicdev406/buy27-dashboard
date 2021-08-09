@@ -103,6 +103,32 @@ export const UpdateProfile = (formData) => async (dispatch) => {
   }
 };
 
+export const getUsersCount = (token) => async (dispatch) => {
+  try {
+    if (token) {
+      setAuthToken(token);
+    }
+    dispatch({ type: t.GET_USERS_COUNT_REQUEST });
+
+    const { data } = await axios.get(
+      "https://backend.buy27.ng/api/users/get/count"
+    );
+
+    dispatch({
+      type: t.GET_USERS_COUNT_SUCCESS,
+      payload: data.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: t.GET_USERS_COUNT_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
 export const logout = () => async (dispatch) => {
   dispatch({ type: t.LOGOUT });
 };

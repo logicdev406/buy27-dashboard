@@ -5,11 +5,10 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import {
   getProductsCount,
-  getUsersCount,
-  getOrdersCount,
   getTotalErnings,
-  getOrders,
 } from "../redux/actions/productAction";
+import { getUsersCount } from "../redux/actions/authAction";
+import { getOrdersCount, getOrders } from "../redux/actions/orderAction";
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";

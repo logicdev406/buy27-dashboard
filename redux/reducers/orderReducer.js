@@ -1,18 +1,17 @@
 import * as t from "../types";
-
-const getProductsCount = (state = { count: "" }, action) => {
+const getOrders = (state = { orders: [] }, action) => {
   switch (action.type) {
-    case t.GET_PRODUCT_COUNT_REQUEST:
+    case t.GET_ORDERS_REQUEST:
       return {
         loading: true,
-        count: "",
+        orders: [],
       };
-    case t.GET_PRODUCT_COUNT_SUCCESS:
+    case t.GET_ORDERS_SUCCESS:
       return {
         loading: false,
-        count: action.payload,
+        orders: action.payload,
       };
-    case t.GET_PRODUCT_COUNT_FAIL:
+    case t.GET_ORDERS_FAIL:
       return {
         loading: false,
         error: action.payload,
@@ -23,19 +22,19 @@ const getProductsCount = (state = { count: "" }, action) => {
   }
 };
 
-const getUsersCount = (state = { count: "" }, action) => {
+const updateOrders = (state = { orders: [] }, action) => {
   switch (action.type) {
-    case t.GET_USERS_COUNT_REQUEST:
+    case t.GET_ORDERS_REQUEST:
       return {
         loading: true,
-        count: "",
+        orders: [],
       };
-    case t.GET_USERS_COUNT_SUCCESS:
+    case t.GET_ORDERS_SUCCESS:
       return {
         loading: false,
-        count: action.payload,
+        orders: action.payload,
       };
-    case t.GET_USERS_COUNT_FAIL:
+    case t.GET_ORDERS_FAIL:
       return {
         loading: false,
         error: action.payload,
@@ -46,19 +45,19 @@ const getUsersCount = (state = { count: "" }, action) => {
   }
 };
 
-const getTotalErnings = (state = { amount: "" }, action) => {
+const getOrdersCount = (state = { count: "" }, action) => {
   switch (action.type) {
-    case t.GET_TOTAL_ERNINGS_COUNT_REQUEST:
+    case t.GET_ORDERS_COUNT_REQUEST:
       return {
         loading: true,
-        amount: "",
+        count: "",
       };
-    case t.GET_TOTAL_ERNINGS_COUNT_SUCCESS:
+    case t.GET_ORDERS_COUNT_SUCCESS:
       return {
         loading: false,
-        amount: action.payload,
+        count: action.payload,
       };
-    case t.GET_TOTAL_ERNINGS_COUNT_FAIL:
+    case t.GET_ORDERS_COUNT_FAIL:
       return {
         loading: false,
         error: action.payload,
@@ -70,7 +69,7 @@ const getTotalErnings = (state = { amount: "" }, action) => {
 };
 
 module.exports = {
-  getProductsCount,
-  getUsersCount,
-  getTotalErnings,
+  updateOrders,
+  getOrders,
+  getOrdersCount,
 };
