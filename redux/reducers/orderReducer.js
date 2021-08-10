@@ -22,19 +22,20 @@ const getOrders = (state = { orders: [] }, action) => {
   }
 };
 
-const updateOrders = (state = { orders: [] }, action) => {
+const updateOrder = (state = { order: {} }, action) => {
   switch (action.type) {
-    case t.GET_ORDERS_REQUEST:
+    case t.UPDATE_ORDER_REQUEST:
       return {
         loading: true,
-        orders: [],
+        orders: {},
       };
-    case t.GET_ORDERS_SUCCESS:
+    case t.UPDATE_ORDER_SUCCESS:
       return {
         loading: false,
         orders: action.payload,
+        success: true,
       };
-    case t.GET_ORDERS_FAIL:
+    case t.UPDATE_ORDER_FAIL:
       return {
         loading: false,
         error: action.payload,
@@ -69,7 +70,7 @@ const getOrdersCount = (state = { count: "" }, action) => {
 };
 
 module.exports = {
-  updateOrders,
+  updateOrder,
   getOrders,
   getOrdersCount,
 };

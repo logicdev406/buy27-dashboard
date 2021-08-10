@@ -4,7 +4,7 @@ import {
   getUsersCount,
   getTotalErnings,
 } from "./productReducer";
-import { getOrdersCount, getOrders } from "./orderReducer";
+import { getOrdersCount, getOrders, updateOrder } from "./orderReducer";
 import { loginReducer } from "./authReducer";
 
 const rootReducer = combineReducers({
@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
   getOrdersCount: getOrdersCount,
   getTotalErnings: getTotalErnings,
   getOrders: getOrders,
+  updatedOrder: updateOrder,
 });
 
 export default rootReducer;

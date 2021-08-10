@@ -53,3 +53,32 @@ export const getOrders = (token) => async (dispatch) => {
     });
   }
 };
+
+export const updateOrder =
+  ({ token, Data, id }) =>
+  async (dispatch) => {
+    try {
+      if (token) {
+        setAuthToken(token);
+      }
+      dispatch({ type: t.UPDATE_ORDER_REQUEST });
+
+      const { data } = await axios.put(
+        `https://backend.buy27.ng/api/orders/${id}`,
+        Data
+      );
+
+      dispatch({
+        type: t.UPDATE_ORDER_SUCCESS,
+        payload: data.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: t.UPDATE_ORDER_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };

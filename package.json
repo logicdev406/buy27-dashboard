@@ -10,23 +10,24 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
-    "autoprefixer": "^10.2.5",
+    "autoprefixer": "^10.3.1",
     "axios": "^0.21.1",
     "cookie": "^0.4.1",
     "dateformat": "^4.5.1",
     "dotenv": "^10.0.0",
     "js-cookie": "^3.0.0",
-    "next": "^10.2.0",
+    "next": "^11.0.1",
     "next-images": "^1.8.1",
     "next-redux-wrapper": "^7.0.2",
-    "postcss": "^8.2.15",
+    "postcss": "^8.3.6",
     "react": "17.0.2",
+    "react-bar-loader": "^1.0.0",
     "react-cookie": "^4.0.3",
     "react-dom": "17.0.2",
     "react-number-format": "^4.7.3",
     "react-redux": "^7.2.4",
-    "redux": "^4.1.0",
+    "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
-    "tailwindcss": "^2.1.2"
+    "tailwindcss": "^2.2.7"
   }
 }

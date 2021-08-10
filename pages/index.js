@@ -8,7 +8,12 @@ import {
   getTotalErnings,
 } from "../redux/actions/productAction";
 import { getUsersCount } from "../redux/actions/authAction";
-import { getOrdersCount, getOrders } from "../redux/actions/orderAction";
+import {
+  getOrdersCount,
+  getOrders,
+  updateOrder,
+} from "../redux/actions/orderAction";
+import BarLoader from "react-bar-loader";
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";
@@ -31,6 +36,7 @@ const mapStateToProps = (state) => {
     totalErnings: state.getTotalErnings,
     ordersCount: state.getOrdersCount,
     orders: state.getOrders,
+    updatedOrder: state.updatedOrder,
   };
 };
 
@@ -40,6 +46,7 @@ const mapDispatchToProps = {
   getOrdersCount,
   getTotalErnings,
   getOrders,
+  updateOrder,
 };
 
 const Home = (props) => {
@@ -48,6 +55,8 @@ const Home = (props) => {
   const { ordersCount, getOrdersCount } = props;
   const { totalErnings, getTotalErnings } = props;
   const { orders, getOrders } = props;
+  const { updatedOrder, updateOrder } = props;
+  console.log(updatedOrder);
 
   const productCount = count.count;
   const totalUserscount = usersCount.count;
@@ -56,18 +65,24 @@ const Home = (props) => {
   const orderList = orders.orders;
 
   const router = useRouter();
+  const token = props.token;
 
   useEffect(() => {
     if (!props.token) {
       router.push("/login"); // redirects if there is no user
     }
-    const token = props.token;
     getProductsCount(token);
     getUsersCount(token);
     getTotalErnings(token);
     getOrdersCount(token);
     getOrders(token);
-  }, [getProductsCount, getUsersCount, getTotalErnings, getOrdersCount]);
+  }, [
+    getProductsCount,
+    getUsersCount,
+    getTotalErnings,
+    getOrdersCount,
+    getOrders,
+  ]);
 
   return (
     <div className="flex  w-screen bg-gray-200">
@@ -171,14 +186,27 @@ const Home = (props) => {
                 <h1 className="mr-8">Action</h1>
               </div>
               <div className="h-96 my-2 text-sm overflow-y-auto ">
+                {updatedOrder.loading ? (
+                  <BarLoader color="#1D8BF1" height="2" />
+                ) : (
+                  ""
+                )}
+
+                {updatedOrder.success
+                  ? router.reload(window.location.pathname)
+                  : ""}
+
                 {orders.loading
                   ? "Loading..."
                   : orders.error
                   ? "Error"
                   : orderList.map((item) => {
                       return (
-                        <div className="flex py-2 text-primary-dark px-5 items-center justify-between">
-                          {item.status === "pending" ? (
+                        <div
+                          key={item._id}
+                          className="flex py-2 text-primary-dark px-5 items-center justify-between"
+                        >
+                          {item.status === "processing" ? (
                             <div className="flex items-center justify-center h-5 w-5 bg-black text-white rounded-full">
                               <MoreHorizIcon fontSize="small" />
                             </div>
@@ -222,12 +250,32 @@ const Home = (props) => {
                             />
                           </p>
                           <div className="flex items-start">
-                            <div className="flex items-center justify-center h-6 w-6 mr-1 rounded shadow-lg border border-primary-dark">
+                            <button
+                              onClick={() => {
+                                updateOrder({
+                                  id: item._id,
+                                  token: token,
+                                  Data: { status: "processing" },
+                                });
+                              }}
+                              className="flex items-center justify-center focus:outline-none h-6 w-6 mr-1 rounded shadow-lg border border-primary-dark"
+                            >
                               <MoreHorizIcon fontSize="small" />
-                            </div>
-                            <div className="flex items-center justify-center h-6 w-6 mx-1 rounded shadow-lg border border-primary-dark">
+                            </button>
+                            <button
+                              onClick={() => {
+                                updateOrder({
+                                  id: item._id,
+                                  token: token,
+                                  Data: { status: "delivered" },
+                                });
+
+                                // getOrders()
+                              }}
+                              className="flex items-center justify-center h-6 w-6 mx-1 rounded shadow-lg border border-primary-dark"
+                            >
                               <CheckRoundedIcon fontSize="small" />
-                            </div>
+                            </button>
                             <div className="flex items-center justify-center h-6 w-6 ml-1 rounded shadow-lg border border-primary-dark">
                               <VisibilityOutlinedIcon fontSize="small" />
                             </div>

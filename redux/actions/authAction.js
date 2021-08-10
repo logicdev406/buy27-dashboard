@@ -80,6 +80,7 @@ export const UpdateProfile = (formData) => async (dispatch) => {
   try {
     if (localStorage.token) {
       setAuthToken(localStorage.token);
+      //add token from cookies
     }
     dispatch({ type: t.UPDATE_PROFILE_REQUEST });
 
