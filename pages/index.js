@@ -320,14 +320,10 @@ const Home = (props) => {
                               <h1 className="text-xs">{user.role}</h1>
                             </div>
                           </div>
-                          {/* <AccountCircleOutlinedIcon /> */}
-                          {/* <div className="flex items-center justify-center h-6 w-6 ml-1 rounded shadow-lg border border-primary-dark">
-                            <VisibilityOutlinedIcon fontSize="small" />
-                          </div> */}
                           <Link href="">
-                            <p className="text-primary-dark font-semibold ">
+                            <a className="text-primary-dark font-semibold ">
                               view
-                            </p>
+                            </a>
                           </Link>
                         </div>
                       );
