@@ -7,7 +7,7 @@ import {
   getProductsCount,
   getTotalErnings,
 } from "../redux/actions/productAction";
-import { getUsersCount } from "../redux/actions/authAction";
+import { getUsersCount, getUsers } from "../redux/actions/authAction";
 import {
   getOrdersCount,
   getOrders,
@@ -28,6 +28,7 @@ import CheckRoundedIcon from "@material-ui/icons/Check";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 import dateFormat from "dateformat";
+import Link from "next/link";
 
 const mapStateToProps = (state) => {
   return {
@@ -37,6 +38,7 @@ const mapStateToProps = (state) => {
     ordersCount: state.getOrdersCount,
     orders: state.getOrders,
     updatedOrder: state.updatedOrder,
+    users: state.users,
   };
 };
 
@@ -47,6 +49,7 @@ const mapDispatchToProps = {
   getTotalErnings,
   getOrders,
   updateOrder,
+  getUsers,
 };
 
 const Home = (props) => {
@@ -56,13 +59,15 @@ const Home = (props) => {
   const { totalErnings, getTotalErnings } = props;
   const { orders, getOrders } = props;
   const { updatedOrder, updateOrder } = props;
-  console.log(updatedOrder);
+  const { users, getUsers } = props;
 
   const productCount = count.count;
   const totalUserscount = usersCount.count;
   const totalOrders = ordersCount.count;
   const totalErning = totalErnings.amount;
   const orderList = orders.orders;
+  const allUsers = users.users;
+  console.log(allUsers);
 
   const router = useRouter();
   const token = props.token;
@@ -76,6 +81,7 @@ const Home = (props) => {
     getTotalErnings(token);
     getOrdersCount(token);
     getOrders(token);
+    getUsers(token);
   }, [
     getProductsCount,
     getUsersCount,
@@ -169,10 +175,12 @@ const Home = (props) => {
             <div className=" w-8/12 bg-white rounded border-2 border-gray-300 shadow-lg ">
               <div className="flex items-center justify-between px-5 py-3 border-b-2">
                 <h1 className=" font-semibold ">Recent Orders</h1>
-                <div className=" flex h-8 px-2 items-center rounded bg-primary-dark text-sm text-white">
-                  <p className="mr-1">See all</p>{" "}
-                  <ArrowForwardOutlinedIcon fontSize="inherit" />
-                </div>
+                <Link href="/orders">
+                  <a className=" flex h-8 px-2 items-center rounded bg-primary-dark text-sm text-white">
+                    <p className="mr-1">See all</p>{" "}
+                    <ArrowForwardOutlinedIcon fontSize="inherit" />
+                  </a>
+                </Link>
               </div>
               <div className=" flex items-center text-primary-dark justify-between py-3 px-5  border-b-2 text-sm font-bold">
                 <div className=" flex items-center justify-center h-5 w-5 bg-black text-white rounded-full">
@@ -269,8 +277,6 @@ const Home = (props) => {
                                   token: token,
                                   Data: { status: "delivered" },
                                 });
-
-                                // getOrders()
                               }}
                               className="flex items-center justify-center h-6 w-6 mx-1 rounded shadow-lg border border-primary-dark"
                             >
@@ -288,124 +294,44 @@ const Home = (props) => {
             <div className="w-96 bg-white  rounded border-2 border-gray-300 shadow-lg ">
               <div className="flex items-center justify-between px-5 py-3 border-b-2">
                 <h1 className=" font-semibold ">Customers</h1>
-                <div className=" flex h-8 px-2 items-center rounded bg-primary-dark text-sm text-white">
-                  <p className="mr-1">See all</p>{" "}
-                  <ArrowForwardOutlinedIcon fontSize="inherit" />
-                </div>
+                <Link href="/customers">
+                  <a className=" flex h-8 px-2 items-center rounded bg-primary-dark text-sm text-white">
+                    <p className="mr-1">See all</p>{" "}
+                    <ArrowForwardOutlinedIcon fontSize="inherit" />
+                  </a>
+                </Link>
               </div>
               <div className="h-96 text-sm mt-8 overflow-y-auto ">
-                <div className="flex px-5 py-3 items-center justify-between">
-                  <div className="flex items-center">
-                    <img
-                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
-                      src=""
-                      alt=""
-                    />
-                    <div className="">
-                      <h1 className="text-sm font-semibold">John Doe</h1>
-                      <h1 className="text-xs">Customers</h1>
-                    </div>
-                  </div>
-                  <AccountCircleOutlinedIcon />
-                </div>
-                <div className="flex px-5 py-3 items-center justify-between">
-                  <div className="flex items-center">
-                    <img
-                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
-                      src=""
-                      alt=""
-                    />
-                    <div className="">
-                      <h1 className="text-sm font-semibold">John Doe</h1>
-                      <h1 className="text-xs">Editor</h1>
-                    </div>
-                  </div>
-                  <AccountCircleOutlinedIcon />
-                </div>
-                <div className="flex px-5 py-3 items-center justify-between">
-                  <div className="flex items-center">
-                    <img
-                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
-                      src=""
-                      alt=""
-                    />
-                    <div className="">
-                      <h1 className="text-sm font-semibold">John Doe</h1>
-                      <h1 className="text-xs">Customers</h1>
-                    </div>
-                  </div>
-                  <AccountCircleOutlinedIcon />
-                </div>
-                <div className="flex px-5 py-3 items-center justify-between">
-                  <div className="flex items-center">
-                    <img
-                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
-                      src=""
-                      alt=""
-                    />
-                    <div className="">
-                      <h1 className="text-sm font-semibold">John Doe</h1>
-                      <h1 className="text-xs">Editor</h1>
-                    </div>
-                  </div>
-                  <AccountCircleOutlinedIcon />
-                </div>
-                <div className="flex px-5 py-3 items-center justify-between">
-                  <div className="flex items-center">
-                    <img
-                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
-                      src=""
-                      alt=""
-                    />
-                    <div className="">
-                      <h1 className="text-sm font-semibold">John Doe</h1>
-                      <h1 className="text-xs">Customers</h1>
-                    </div>
-                  </div>
-                  <AccountCircleOutlinedIcon />
-                </div>
-                <div className="flex px-5 py-3 items-center justify-between">
-                  <div className="flex items-center">
-                    <img
-                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
-                      src=""
-                      alt=""
-                    />
-                    <div className="">
-                      <h1 className="text-sm font-semibold">John Doe</h1>
-                      <h1 className="text-xs">Editor</h1>
-                    </div>
-                  </div>
-                  <AccountCircleOutlinedIcon />
-                </div>
-                <div className="flex px-5 py-3 items-center justify-between">
-                  <div className="flex items-center">
-                    <img
-                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
-                      src=""
-                      alt=""
-                    />
-                    <div className="">
-                      <h1 className="text-sm font-semibold">John Doe</h1>
-                      <h1 className="text-xs">Customers</h1>
-                    </div>
-                  </div>
-                  <AccountCircleOutlinedIcon />
-                </div>
-                <div className="flex px-5 py-3 items-center justify-between">
-                  <div className="flex items-center">
-                    <img
-                      className="h-12 w-12 rounded-full bg-red-500 mr-2"
-                      src=""
-                      alt=""
-                    />
-                    <div className="">
-                      <h1 className="text-sm font-semibold">John Doe</h1>
-                      <h1 className="text-xs">Editor</h1>
-                    </div>
-                  </div>
-                  <AccountCircleOutlinedIcon />
-                </div>
+                {users.loading
+                  ? "Loading..."
+                  : users.error
+                  ? "Error"
+                  : allUsers.map((user) => {
+                      return (
+                        <div className="flex px-5 py-3 items-center justify-between">
+                          <div className="flex items-center ">
+                            <div className=" flex items-center justify-center text-white font-semibold h-12 w-12 rounded-full bg-primary-dark mr-2">
+                              {user.firstName.charAt(0).toUpperCase()}
+                            </div>
+                            <div className="">
+                              <h1 className="text-sm font-semibold">
+                                {user.firstName} {user.lastName}
+                              </h1>
+                              <h1 className="text-xs">{user.role}</h1>
+                            </div>
+                          </div>
+                          {/* <AccountCircleOutlinedIcon /> */}
+                          {/* <div className="flex items-center justify-center h-6 w-6 ml-1 rounded shadow-lg border border-primary-dark">
+                            <VisibilityOutlinedIcon fontSize="small" />
+                          </div> */}
+                          <Link href="">
+                            <p className="text-primary-dark font-semibold ">
+                              view
+                            </p>
+                          </Link>
+                        </div>
+                      );
+                    })}
               </div>
             </div>
           </div>

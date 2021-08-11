@@ -23,29 +23,6 @@ const getProductsCount = (state = { count: "" }, action) => {
   }
 };
 
-const getUsersCount = (state = { count: "" }, action) => {
-  switch (action.type) {
-    case t.GET_USERS_COUNT_REQUEST:
-      return {
-        loading: true,
-        count: "",
-      };
-    case t.GET_USERS_COUNT_SUCCESS:
-      return {
-        loading: false,
-        count: action.payload,
-      };
-    case t.GET_USERS_COUNT_FAIL:
-      return {
-        loading: false,
-        error: action.payload,
-      };
-
-    default:
-      return state;
-  }
-};
-
 const getTotalErnings = (state = { amount: "" }, action) => {
   switch (action.type) {
     case t.GET_TOTAL_ERNINGS_COUNT_REQUEST:
@@ -71,6 +48,5 @@ const getTotalErnings = (state = { amount: "" }, action) => {
 
 module.exports = {
   getProductsCount,
-  getUsersCount,
   getTotalErnings,
 };

@@ -73,6 +73,29 @@ export const getUsersCount = (state = { count: "" }, action) => {
   }
 };
 
+export const getUsers = (state = { users: [] }, action) => {
+  switch (action.type) {
+    case t.GET_USERS_REQUEST:
+      return {
+        loading: true,
+        users: [],
+      };
+    case t.GET_USERS_SUCCESS:
+      return {
+        loading: false,
+        users: action.payload,
+      };
+    case t.GET_USERS_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
 export const loadUserReducer = (state = { user: {} }, action) => {
   switch (action.type) {
     case t.USER_REQUEST:

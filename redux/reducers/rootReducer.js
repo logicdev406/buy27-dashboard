@@ -1,14 +1,11 @@
 import { combineReducers } from "redux";
-import {
-  getProductsCount,
-  getUsersCount,
-  getTotalErnings,
-} from "./productReducer";
+import { getProductsCount, getTotalErnings } from "./productReducer";
 import { getOrdersCount, getOrders, updateOrder } from "./orderReducer";
-import { loginReducer } from "./authReducer";
+import { loginReducer, getUsersCount, getUsers } from "./authReducer";
 
 const rootReducer = combineReducers({
   login: loginReducer,
+  users: getUsers,
   getProductsCount: getProductsCount,
   getUsersCount: getUsersCount,
   getOrdersCount: getOrdersCount,
