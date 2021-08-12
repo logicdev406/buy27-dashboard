@@ -6,8 +6,8 @@ import DashboardOutlinedIcon from "@material-ui/icons/DashboardOutlined";
 
 const Navbar = () => {
   return (
-    <div className="flex items-center justify-between ">
-      <div className=" h-8 flex items-center bg-white rounded-lg">
+    <div className="flex w-full items-center justify-between">
+      <div className=" h-8 flex items-center justify-between bg-white rounded-lg">
         <input
           className=" focus:outline-none px-2 py-1 bg-transparent "
           type="text"
